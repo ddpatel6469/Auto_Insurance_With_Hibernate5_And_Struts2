@@ -11,17 +11,18 @@ import com.demo.model.insurance_admin;
 
 public class loginAdmin {
 	
-	public boolean signupAd(String a,String b) {
+	public boolean signupAd(insurance_admin ai) {
 
 		try {
 			
 			Session session1 = HibernateUtil.getSessionFactory().openSession();
 			Transaction t1 = session1.beginTransaction();
-			insurance_admin a1 = new insurance_admin();
-			a1.setAdmin_name(a);
-			a1.setAdmin_password(b);
-			session1.save(a1);
+			//insurance_admin a1 = new insurance_admin();
+			//a1.setAdmin_name(a);
+			//a1.setAdmin_password(b);
+			session1.save(ai);
 			t1.commit();
+			session1.close();
 			System.out.println("saved");
 //			Query query = session.createQuery("from bank where bname=:bankname and bpassword=:bankpassword");
 //			query.setParameter("bankname", em);
@@ -48,6 +49,7 @@ public class loginAdmin {
 			System.out.println(list);
 			if(list != null && list.size()==1)
 			return true;
+			session.close();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

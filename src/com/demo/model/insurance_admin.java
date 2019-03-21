@@ -7,15 +7,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name = "Insurance_Admin")
-public class insurance_admin {
+public class insurance_admin{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "admin_id")
+	@Column(name = "admin_id", nullable = false)
 	private int id;
-	
+
 	@Column(nullable = false, unique = true)
 	private String admin_name;
 	
@@ -58,5 +59,6 @@ public class insurance_admin {
 		return "insurance_admin [id=" + id + ", admin_name=" + admin_name + ", admin_password=" + admin_password + "]";
 	}
 	
+
 	
 }
