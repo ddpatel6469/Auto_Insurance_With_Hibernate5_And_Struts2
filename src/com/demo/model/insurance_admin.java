@@ -22,7 +22,7 @@ public class insurance_admin{
 	
 	@Column(nullable = false)
 	private String admin_password;
-	
+
 	public insurance_admin() {
 		
 	}
@@ -58,6 +58,7 @@ public class insurance_admin{
 	public String toString() {
 		return "insurance_admin [id=" + id + ", admin_name=" + admin_name + ", admin_password=" + admin_password + "]";
 	}
+
 	
 
 	

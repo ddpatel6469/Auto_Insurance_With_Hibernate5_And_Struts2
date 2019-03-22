@@ -3,8 +3,12 @@ package com.demo.struts;
 import com.demo.model.insurance_admin;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class loginAction extends ActionSupport{
+public class loginAdminAction extends ActionSupport{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	insurance_admin ia = new insurance_admin();
 	
 	public insurance_admin getIa() {
@@ -30,7 +34,7 @@ public class loginAction extends ActionSupport{
 		boolean flag1 = false;
 		try {
 			
-			loginAdmin log1 = new loginAdmin();
+			loginAdminService log1 = new loginAdminService();
 			flag1 = log1.signupAd(ia);
 		}
 		catch(Exception e) {
@@ -49,7 +53,7 @@ public class loginAction extends ActionSupport{
 		boolean flag = false;
 		try {
 			
-			loginAdmin log = new loginAdmin();
+			loginAdminService log = new loginAdminService();
 			flag = log.loginAd(ia.getAdmin_name(),ia.getAdmin_password());
 		}
 		catch(Exception e) {

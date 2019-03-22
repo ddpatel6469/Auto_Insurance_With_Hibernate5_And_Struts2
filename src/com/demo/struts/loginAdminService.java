@@ -9,7 +9,7 @@ import org.hibernate.Transaction;
 import com.demo.hbm.HibernateUtil;
 import com.demo.model.insurance_admin;
 
-public class loginAdmin {
+public class loginAdminService {
 	
 	public boolean signupAd(insurance_admin ai) {
 
@@ -45,7 +45,7 @@ public class loginAdmin {
 			Query query = session.createQuery("from insurance_admin where admin_name=:aname and admin_password=:apassword");
 			query.setParameter("aname", c);
 			query.setParameter("apassword", d);
-			List<loginAction> list = query.list(); 
+			List<loginAdminAction> list = query.list(); 
 			System.out.println(list);
 			if(list != null && list.size()==1)
 			return true;

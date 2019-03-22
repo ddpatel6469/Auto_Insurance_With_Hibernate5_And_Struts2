@@ -6,14 +6,14 @@ Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 	<package name="default" extends="struts-default">    
 	
 	
-		<action name="signupadmin" class="com.demo.struts.loginAction" method="signupAdmin">
-		<result name = "success">success.jsp</result>
+		<action name="signupadmin" class="com.demo.struts.loginAdminAction" method="signupAdmin">
+		<result name = "success">admin_login.jsp</result>
 		<result name = "input">admin_signup.jsp</result>
 		<result name = "error">error.jsp</result>    
 		</action>
 		
-		<action name="loginadmin" class="com.demo.struts.loginAction" method="loginAdmin">
-		<result name = "success">success.jsp</result>
+		<action name="loginadmin" class="com.demo.struts.loginAdminAction" method="loginAdmin">
+		<result name = "success">admin_welcome.jsp</result>
 		<result name = "input">admin_login.jsp</result>
 		<result name = "error">error.jsp</result>    
 		</action>
