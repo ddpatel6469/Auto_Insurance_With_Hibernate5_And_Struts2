@@ -18,5 +18,10 @@ Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 		<result name = "error">error.jsp</result>    
 		</action>
 		     
+		<action name="agent_register" class="com.demo.struts.RegisterAgentAction" method="registerAgents">
+		<result name = "success">success.jsp</result>
+		<result name = "input">agent_details_insert.jsp</result>
+		<result name = "error">error.jsp</result>    
+		</action>
 	</package>  
 </struts>

@@ -15,7 +15,6 @@ public class loginAdminAction extends ActionSupport{
 		return ia;
 	}
 
-
 	public void setIa(insurance_admin ia) {
 		this.ia = ia;
 	}
@@ -35,7 +34,7 @@ public class loginAdminAction extends ActionSupport{
 		try {
 			
 			loginAdminService log1 = new loginAdminService();
-			flag1 = log1.signupAd(ia);
+			flag1 = log1.signupAd(ia.getAdmin_name(),ia.getAdmin_password());
 		}
 		catch(Exception e) {
 			e.printStackTrace();

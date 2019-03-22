@@ -9,8 +9,8 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-import com.demo.model.Agent;
-import com.demo.model.Agent_Login;
+import com.demo.model.Agents;
+//import com.demo.model.Agent_Login;
 import com.demo.model.insurance_admin;
 
 
@@ -30,7 +30,7 @@ public class HibernateUtil {
 
             Map<String, String> settings = new HashMap<>();
             settings.put("hibernate.connection.driver_class", "com.mysql.cj.jdbc.Driver");
-            settings.put("hibernate.connection.url", "jdbc:mysql://localhost/autoinsurance");
+            settings.put("hibernate.connection.url", "jdbc:mysql://localhost/AutoIMS");
             settings.put("hibernate.connection.username", "root");
             settings.put("hibernate.connection.password", "rootroot");
             settings.put("hibernate.show_sql", "true");
@@ -40,8 +40,8 @@ public class HibernateUtil {
 
             MetadataSources sources = new MetadataSources(registry)
                   .addAnnotatedClass(insurance_admin.class)
-                  .addAnnotatedClass(Agent.class)
-                  .addAnnotatedClass(Agent_Login.class);
+                  .addAnnotatedClass(Agents.class);
+//                  .addAnnotatedClass(Agent_Login.class);
 
             Metadata metadata = sources.getMetadataBuilder().build();
 
