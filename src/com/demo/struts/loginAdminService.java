@@ -11,16 +11,16 @@ import com.demo.model.insurance_admin;
 
 public class loginAdminService {
 	
-	public boolean signupAd(String a,String b) {
+	static Session session1 = null;
+	public static String name;
+	
+	public boolean signupAd(insurance_admin ia) {
 
 		try {
 			
-			Session session1 = HibernateUtil.getSessionFactory().openSession();
+			session1 = HibernateUtil.getSessionFactory().openSession();
 			Transaction t1 = session1.beginTransaction();
-			insurance_admin a1 = new insurance_admin();
-			a1.setAdmin_name(a);
-			a1.setAdmin_password(b);
-			session1.save(a1);
+			session1.save(ia);
 			t1.commit();
 			session1.close();
 			System.out.println("saved");			
@@ -32,7 +32,7 @@ public class loginAdminService {
 		return false;
 }
 
-	public boolean loginAd(String c,String d) {
+	public static boolean loginAd(String c,String d) {
 
 		try {
 			
@@ -40,8 +40,12 @@ public class loginAdminService {
 			Query query = session.createQuery("from insurance_admin where admin_name=:aname and admin_password=:apassword");
 			query.setParameter("aname", c);
 			query.setParameter("apassword", d);
-			List<loginAdminAction> list = query.list(); 
+			List<insurance_admin> list = query.list();
+			for(insurance_admin i : list) {
+				name = i.getAdmin_name();
+			}
 			System.out.println(list);
+			
 			if(list != null && list.size()==1)
 			return true;
 			session.close();

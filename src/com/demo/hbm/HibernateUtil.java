@@ -9,8 +9,8 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+import com.demo.model.Agent_Login;
 import com.demo.model.Agents;
-//import com.demo.model.Agent_Login;
 import com.demo.model.insurance_admin;
 
 
@@ -40,8 +40,8 @@ public class HibernateUtil {
 
             MetadataSources sources = new MetadataSources(registry)
                   .addAnnotatedClass(insurance_admin.class)
-                  .addAnnotatedClass(Agents.class);
-//                  .addAnnotatedClass(Agent_Login.class);
+                  .addAnnotatedClass(Agents.class)
+                  .addAnnotatedClass(Agent_Login.class);
 
             Metadata metadata = sources.getMetadataBuilder().build();
 

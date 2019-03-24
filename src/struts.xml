@@ -19,8 +19,26 @@ Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 		</action>
 		     
 		<action name="agent_register" class="com.demo.struts.RegisterAgentAction" method="registerAgents">
-		<result name = "success">success.jsp</result>
+		<result name = "success">agent_login_details_insert.jsp</result>
 		<result name = "input">agent_details_insert.jsp</result>
+		<result name = "error">error.jsp</result>    
+		</action>
+		
+		<action name="agent_details_view" class="com.demo.struts.RegisterAgentAction" method="viewAgents">
+		<result name = "success">agent_details_view.jsp</result>
+		<result name = "input">agent_details_view.jsp</result>
+		<result name = "error">error.jsp</result>    
+		</action>
+		
+		<action name="agent_final_register" class="com.demo.struts.RegisterAgentAction" method="viewAgentsLogin">
+		<result name = "success">admin_welcome.jsp</result>
+		<result name = "input">agent_login_details_insert.jsp</result>
+		<result name = "error">error.jsp</result>    
+		</action>
+		
+		<action name="session_logout" class="com.demo.struts.RegisterAgentAction" method="logout">
+		<result name = "success">success.jsp</result>
+		<result name = "input">agent_login_details_insert.jsp</result>
 		<result name = "error">error.jsp</result>    
 		</action>
 	</package>  

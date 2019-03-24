@@ -4,9 +4,12 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -19,6 +22,9 @@ public class Agents {
 	@Column(name = "Agent_Id")
 	private int id;
 	
+	@Column(name = "A_UID", nullable = false, unique = true)
+	private String uid;
+	
 	@Column(name = "A_FName",nullable = false)
 	private String fname;
 	
@@ -28,6 +34,9 @@ public class Agents {
 	@Column(name = "A_LName",nullable = false)
 	private String lname;
 	
+	@Column(name = "A_Gender",nullable = false)
+	private String gender;
+	
 	@Column(name = "A_Email",nullable = false, unique = true)
 	private String email;
 	
@@ -35,7 +44,7 @@ public class Agents {
 	private Date date;
 	
 	@Column(name = "A_CNumber",nullable = false)
-	private int contact;
+	private String contact;
 	
 	@Column(name = "A_Address",nullable = false)
 	private String address;
@@ -49,12 +58,24 @@ public class Agents {
 	@Column(name = "A_Zipcode",nullable = false)
 	private int zipcode;
 
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "Agent_Login_Connect")
+	private Agent_Login agentlogin;
+	
 	public int getId() {
 		return id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public String getUid() {
+		return uid;
+	}
+
+	public void setUid(String uid) {
+		this.uid = uid;
 	}
 
 	public String getFname() {
@@ -81,6 +102,14 @@ public class Agents {
 		this.lname = lname;
 	}
 
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -96,12 +125,12 @@ public class Agents {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-
-	public int getContact() {
+	
+	public String getContact() {
 		return contact;
 	}
 
-	public void setContact(int contact) {
+	public void setContact(String contact) {
 		this.contact = contact;
 	}
 
@@ -137,4 +166,14 @@ public class Agents {
 		this.zipcode = zipcode;
 	}
 	
+	public Agent_Login getAgentlogin() {
+		return agentlogin;
+	}
+
+	public void setAgentlogin(Agent_Login agentlogin) {
+		this.agentlogin = agentlogin;
+	}
+
+	public Agents() {
+	}
 }
