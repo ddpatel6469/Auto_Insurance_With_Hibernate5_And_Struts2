@@ -2,6 +2,7 @@ package com.demo.struts;
 
 import java.util.Map;
 
+import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.interceptor.SessionAware;
 import org.hibernate.Session;
 
@@ -17,12 +18,10 @@ public class loginAdminAction extends ActionSupport implements SessionAware{
 	
 	static Session session = null;
 	
-	public Map<String, Object> adminsession;
+	private SessionMap<String, Object> adminsession;
 	
-	
-	public void setSession(Map<String, Object> session) {
-		this.adminsession = session;
-
+	public void setSession(Map<String, Object> map) {
+		adminsession = (SessionMap<String, Object>) map;
 	}
 	
 	insurance_admin ia = new insurance_admin();
@@ -43,11 +42,11 @@ public class loginAdminAction extends ActionSupport implements SessionAware{
 	      if (ia.getAdmin_password().length() == 0) {
 	         addFieldError("ia.admin_password", "Admin Password is required");
 	      };
-	      if("admin".equals(ia.getAdmin_name()) && "admin".equals(ia.getAdmin_password())) {
-	    	  addActionMessage("You are valid user!");
-	      }else {
-	    	  addActionError("I don't know you, dont try to hack me!");
-	      }
+//	      if("admin".equals(ia.getAdmin_name()) && "admin".equals(ia.getAdmin_password())) {
+//	    	  addActionMessage("You are valid user!");
+//	      }else {
+//	    	  addActionError("I don't know you, dont try to hack me!");
+//	      }
 	}
 	
 	public String signupAdmin() {

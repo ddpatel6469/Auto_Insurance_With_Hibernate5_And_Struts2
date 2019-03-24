@@ -3,6 +3,7 @@ package com.demo.struts;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.interceptor.SessionAware;
 import org.hibernate.Session;
 
@@ -40,10 +41,10 @@ public class RegisterAgentAction extends ActionSupport implements Action,Session
 		this.agentlist = agentlist;
 	}
 
-	public Map<String, Object> adminsession;
+	private SessionMap<String, Object> adminsession;
 	
-	public void setSession(Map<String, Object> session) {
-		this.adminsession = session;
+	public void setSession(Map<String, Object> map) {
+		adminsession = (SessionMap<String, Object>) map;
 	}
 	
 	Agents a = new Agents();
@@ -125,13 +126,11 @@ public class RegisterAgentAction extends ActionSupport implements Action,Session
 	}
 		
 	public String logout(){  
-        if(adminsession!=null){  
-        	adminsession.clear();
+       
+		adminsession.remove("adminuname");
+		adminsession.invalidate();
            return "success";
-
          }
-        return "error";  
-    }
 	
 	public String viewAgentsLogin() {
 		

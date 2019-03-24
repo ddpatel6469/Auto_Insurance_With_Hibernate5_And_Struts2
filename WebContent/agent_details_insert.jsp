@@ -25,7 +25,9 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="my-2 my-lg-0 nav-item">
-					<button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Logout</button>
+				<form method="post" action="session_logout"> 
+				<s:submit value="Logout" class="btn btn-outline-warning my-2 my-sm-0"></s:submit>
+				</form>
 				</li>
 			</ul>
 		</div>

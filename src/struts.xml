@@ -8,7 +8,7 @@ Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 	
 		<action name="signupadmin" class="com.demo.struts.loginAdminAction" method="signupAdmin">
 		<result name = "success">admin_login.jsp</result>
-		<result name = "input">admin_signup.jsp</result>
+	<!-- 	<result name = "input">admin_signup.jsp</result> -->
 		<result name = "error">error.jsp</result>    
 		</action>
 		
@@ -37,9 +37,8 @@ Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 		</action>
 		
 		<action name="session_logout" class="com.demo.struts.RegisterAgentAction" method="logout">
-		<result name = "success">success.jsp</result>
-		<result name = "input">agent_login_details_insert.jsp</result>
-		<result name = "error">error.jsp</result>    
+		<result name = "success">admin_login.jsp</result>
+		<result name = "input">admin_welcome.jsp</result>    
 		</action>
 	</package>  
 </struts>
