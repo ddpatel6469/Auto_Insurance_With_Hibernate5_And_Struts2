@@ -147,5 +147,23 @@ public class RegisterAgentAction extends ActionSupport implements Action,Session
 			return SUCCESS;
 		else
 			return ERROR;
-	}		
+	}
+	
+	public String delete() {
+		
+		System.out.println("Starting of delete");
+		boolean del = false;
+		try {
+			RegisterAgentService ras2 = new RegisterAgentService();
+			del = ras2.delete1();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		if(del) {
+		return SUCCESS;
+		}else {
+			return ERROR;
+		}
+	}
 }

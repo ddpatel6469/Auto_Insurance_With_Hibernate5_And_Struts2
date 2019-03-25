@@ -14,6 +14,7 @@ public class loginAdminService {
 	static Session session1 = null;
 	public static String name;
 	
+	
 	public boolean signupAd(insurance_admin ia) {
 
 		try {

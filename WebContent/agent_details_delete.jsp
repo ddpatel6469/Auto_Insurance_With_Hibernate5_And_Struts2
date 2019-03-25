@@ -68,7 +68,8 @@
 					<th><s:property value="city" /></th>
 					<th><s:property value="state" /></th>
 					<th><s:property value="zipcode" /></th>
-					<td><form action="deletekaro"><s:submit type="image" src="images/delete1.png"/></td></form>
+					<td><a href="delete.jsp?id=<s:property value="id" />"><img src="images/delete1.png"/></a></td>
+					<%-- <td><form action="deletekaro"><s:submit type="image" src="images/delete1.png"/></td></form> --%>
 				</tr>
 		</s:iterator>
 		</table>
